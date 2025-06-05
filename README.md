@@ -1,159 +1,90 @@
-# 📄 Gerador de Contrato de Locação
+# 🚀 AssinaFácil - Sistema Completo de Contratos
 
-Uma aplicação web moderna e completa para criação e gestão de contratos de locação imobiliária. Desenvolvida com HTML, CSS e JavaScript puro, funciona diretamente no navegador sem necessidade de servidor.
+## 📋 **Visão Geral**
+O AssinaFácil é um sistema completo para criação e gestão de contratos de locação, oferecendo suporte para **imóveis** e **veículos** em uma única plataforma moderna e intuitiva.
 
-## 🌟 Funcionalidades
+## ✨ **Características Principais**
 
-### ✅ **Formulários Inteligentes**
-- **Dados da Locadora**: Nome, nacionalidade, estado civil, documentos, endereço
-- **Dados do Locatário**: Informações pessoais, profissão, contatos, documentos
-- **Dados do Imóvel**: Tipo, endereço, descrição detalhada (quartos, salas, banheiros)
-- **Dados do Contrato**: Tipo de locação, prazos, valores, condições
+### 🏠 **Contratos de Imóvel**
+- Locação residencial, comercial ou mista
+- Formulários específicos para dados do imóvel
+- Cláusulas personalizadas para locação imobiliária
+- Campos para quartos, salas, banheiros, etc.
+
+### 🚗 **Contratos de Veículo**
+- Locação de automóveis e motocicletas
+- Campos específicos para dados do veículo
+- CNH e documentação veicular
+- Cláusulas de seguro e caução
 
 ### 🎨 **Interface Moderna**
-- Design responsivo para desktop, tablet e mobile
-- Gradientes e animações suaves
-- Máscaras automáticas para CPF, telefone, CEP
-- Validação de formulários em tempo real
-- Feedback visual para todas as ações
+- **Seletor Visual**: Cards com ícones (casinha 🏠 e carrinho 🚗)
+- **Design Responsivo**: Funciona em desktop e mobile
+- **Gradientes Atraentes**: Interface moderna e profissional
+- **Navegação Intuitiva**: Breadcrumbs e abas organizadas
 
-### 📋 **Visualização Profissional**
-- Contrato formatado como documento oficial
-- Layout estruturado em cláusulas
-- Texto justificado e profissional
-- Dados preenchidos dinamicamente
+### 📄 **Funcionalidades Completas**
+- ✅ **Formulários Editáveis** com dados pré-carregados
+- ✅ **Visualização Profissional** do contrato formatado
+- ✅ **Exportação PDF** com layout profissional
+- ✅ **Exportação Word** para edição posterior
+- ✅ **Função Imprimir** direta do navegador
+- ✅ **Salvamento Local** dos dados no navegador
 
-### 📄 **Exportação Completa**
-- **PDF**: Geração usando jsPDF com formatação profissional
-- **Word**: Arquivo .doc editável para download
-- **Impressão**: Função de impressão otimizada
+## 🛠 **Tecnologias Utilizadas**
+- **HTML5** - Estrutura semântica
+- **CSS3** - Estilos modernos com gradientes
+- **JavaScript ES6+** - Lógica da aplicação
+- **jsPDF** - Geração de PDF no frontend
+- **Bootstrap Icons** - Ícones modernos
+- **LocalStorage** - Persistência de dados
 
-### 💾 **Persistência Local**
-- Salvamento automático no navegador
-- Dados preservados entre sessões
-- Carregamento automático ao acessar
+## 📱 **Compatibilidade**
+- ✅ Todos os navegadores modernos
+- ✅ Dispositivos móveis (iPhone/Android)
+- ✅ Tablets e desktops
+- ✅ Funciona offline após carregamento
 
-## 🚀 Como Usar
+## 🚀 **Como Usar**
 
-### 1. **Editar Dados**
-- Acesse a aba "Editar Dados"
-- Preencha os formulários com as informações
-- Clique em "Salvar Dados" para persistir
+### 1. **Seleção do Tipo**
+- Acesse a página inicial
+- Escolha entre "Contrato de Imóvel" ou "Contrato de Veículo"
+- Clique em "Selecionar"
 
-### 2. **Visualizar Contrato**
-- Acesse a aba "Visualizar Contrato"
-- Veja o documento formatado profissionalmente
-- Todos os dados são preenchidos automaticamente
+### 2. **Edição dos Dados**
+- Preencha os formulários com os dados específicos
+- Use as máscaras automáticas (CPF, telefone, CEP)
+- Salve os dados com o botão "Salvar"
 
-### 3. **Exportar Documentos**
-- **Baixar PDF**: Gera arquivo PDF para download
-- **Baixar Word**: Cria arquivo .doc editável
-- **Imprimir**: Abre janela de impressão do navegador
+### 3. **Visualização**
+- Clique na aba "Visualizar Contrato"
+- Veja o contrato formatado profissionalmente
+- Use os botões de exportação conforme necessário
 
-## 🛠️ Tecnologias
+### 4. **Exportação**
+- **PDF**: Download direto do contrato em PDF
+- **Word**: Arquivo editável para modificações
+- **Imprimir**: Impressão direta do navegador
 
-- **HTML5**: Estrutura semântica e acessível
-- **CSS3**: Estilização moderna com gradientes e animações
-- **JavaScript**: Funcionalidades interativas e geração de documentos
-- **Bootstrap 5**: Framework CSS responsivo
-- **Font Awesome**: Ícones profissionais
-- **jsPDF**: Geração de PDFs no frontend
-- **LocalStorage**: Persistência de dados local
-
-## 📱 Compatibilidade
-
-- ✅ Chrome, Firefox, Safari, Edge
-- ✅ Desktop, Tablet, Mobile
-- ✅ iOS e Android
-- ✅ Funciona offline após carregamento inicial
-
-## 🎯 Características
-
-### **Responsividade Total**
-- Interface adaptada para todos os dispositivos
-- Formulários otimizados para toque
-- Layout flexível e fluido
-
-### **Experiência do Usuário**
-- Carregamento rápido
-- Navegação intuitiva
-- Feedback visual imediato
-- Máscaras automáticas de formatação
-
-### **Profissionalismo**
-- Contratos com formatação jurídica
-- Cláusulas estruturadas corretamente
-- Documentos prontos para uso oficial
-
-## 📦 Instalação
-
-### **GitHub Pages (Recomendado)**
-1. Faça fork deste repositório
-2. Vá em Settings > Pages
-3. Selecione "Deploy from a branch"
-4. Escolha "main" branch
-5. Acesse via URL gerada
-
-### **Local**
-1. Clone o repositório
-2. Abra `index.html` no navegador
-3. Pronto para usar!
-
-## 🔧 Estrutura do Projeto
-
+## 📦 **Estrutura de Arquivos**
 ```
-contrato-locacao/
-├── index.html          # Página principal
-├── style.css           # Estilos da aplicação
-├── script.js           # Funcionalidades JavaScript
-└── README.md           # Documentação
+assinafacil/
+├── index.html      # Página principal
+├── style.css       # Estilos da aplicação
+├── script.js       # Lógica JavaScript
+└── README.md       # Esta documentação
 ```
 
-## 📋 Dados Padrão
+## 🌐 **Publicação no GitHub Pages**
+1. Faça upload dos 4 arquivos para um repositório
+2. Ative GitHub Pages nas configurações
+3. Acesse via: `https://seuusuario.github.io/assinafacil`
 
-A aplicação vem com dados de exemplo pré-carregados para demonstração:
-- Locadora: Harrison Ribeiro Costa
-- Locatário: Joel Magno Alves dos Santos
-- Imóvel: Apartamento em Muritiba/BA
-- Contrato: Locação residencial de 12 meses
-
-## 🎨 Personalização
-
-### **Cores e Tema**
-Edite o arquivo `style.css` para personalizar:
-- Gradientes do cabeçalho
-- Cores dos botões
-- Esquema de cores geral
-
-### **Dados Padrão**
-Modifique o objeto `dadosPadrao` em `script.js` para alterar os dados iniciais.
-
-### **Campos do Formulário**
-Adicione novos campos editando o HTML e atualizando o JavaScript correspondente.
-
-## 🔒 Privacidade
-
-- Todos os dados são armazenados localmente no navegador
-- Nenhuma informação é enviada para servidores externos
-- Funciona completamente offline
-- Dados podem ser limpos a qualquer momento
-
-## 📄 Licença
-
-Este projeto é de código aberto e pode ser usado livremente para fins pessoais e comerciais.
-
-## 👨‍💻 Desenvolvedor
-
-**Harrison Costa**
-- Sistema completo de geração de contratos
-- Interface moderna e responsiva
-- Funcionalidades avançadas de exportação
+## 👨‍💻 **Desenvolvido por**
+**Harrison Costa** - Sistema AssinaFácil
 
 ---
 
-## 🌐 Demo Online
-
-Acesse a demonstração: [GitHub Pages URL]
-
-**Desenvolvido com ❤️ por Harrison Costa**
+**© 2024 AssinaFácil - Sistema de Contratos**
 

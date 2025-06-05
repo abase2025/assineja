@@ -9,26 +9,218 @@ body {
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     margin: 20px auto;
-    max-width: 1200px;
+    max-width: 1400px;
     overflow: hidden;
 }
 
 .header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 300;
+    letter-spacing: 2px;
 }
 
 .header p {
-    margin: 10px 0 0 0;
+    margin: 15px 0 0 0;
     opacity: 0.9;
+    font-size: 1.2rem;
+}
+
+.header small {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Seletor de Tipo de Contrato */
+.contract-selector {
+    padding: 50px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.selector-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.selector-header h3 {
+    color: #667eea;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.selector-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.contract-type-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.contract-type-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.contract-type-card:hover::before {
+    left: 100%;
+}
+
+.contract-type-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+}
+
+.card-icon {
+    font-size: 5rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    text-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.contract-type-card:hover .card-icon {
+    transform: scale(1.2) rotate(5deg);
+    color: #764ba2;
+    text-shadow: 0 6px 12px rgba(118, 75, 162, 0.4);
+}
+
+/* Ícones específicos com animações */
+.card-icon .fa-home {
+    position: relative;
+}
+
+.card-icon .fa-home::before {
+    content: "🏠";
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    font-size: 4.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.contract-type-card:hover .card-icon .fa-home::before {
+    transform: translate(-50%, -50%) scale(1.1) rotate(-5deg);
+}
+
+.card-icon .fa-car {
+    position: relative;
+}
+
+.card-icon .fa-car::before {
+    content: "🚗";
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    font-size: 4.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.contract-type-card:hover .card-icon .fa-car::before {
+    transform: translate(-50%, -50%) scale(1.1) translateX(5px);
+}
+
+.contract-type-card h4 {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.contract-type-card p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.features-list li {
+    padding: 8px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.features-list i {
+    color: #28a745;
+    margin-right: 10px;
+    width: 16px;
+}
+
+.card-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contract-type-card:hover .card-button {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Interface Principal */
+.main-interface {
+    padding: 0;
+}
+
+.breadcrumb-container {
+    background: #f8f9fa;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.breadcrumb {
+    margin: 0;
+    background: none;
+    padding: 0;
+}
+
+.breadcrumb-item a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: #764ba2;
 }
 
 .nav-tabs {
@@ -53,6 +245,11 @@ body {
     border-bottom: 3px solid #667eea;
 }
 
+.nav-tabs .nav-link:hover:not(.active) {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
 .tab-content {
     padding: 30px;
 }
@@ -63,6 +260,11 @@ body {
     padding: 25px;
     margin-bottom: 25px;
     border-left: 5px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.form-section:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .form-section h4 {
@@ -136,6 +338,7 @@ body {
     line-height: 1.6;
     max-height: 600px;
     overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .contrato-preview h2 {
@@ -162,17 +365,6 @@ body {
     border-radius: 15px;
 }
 
-.loading {
-    display: none;
-    text-align: center;
-    padding: 20px;
-}
-
-.alert {
-    border-radius: 10px;
-    border: none;
-}
-
 .footer {
     text-align: center;
     padding: 20px;
@@ -181,6 +373,27 @@ body {
     font-size: 0.9rem;
 }
 
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contract-type-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.contract-type-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
     .main-container {
         margin: 10px;
@@ -188,7 +401,28 @@ body {
     }
     
     .header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .contract-selector {
+        padding: 30px 20px;
+    }
+    
+    .selector-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .contract-type-card {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .card-icon {
+        font-size: 3rem;
     }
     
     .tab-content {
@@ -219,7 +453,7 @@ body {
         max-width: none !important;
     }
     
-    .header, .nav-tabs, .export-buttons, .footer {
+    .header, .nav-tabs, .export-buttons, .footer, .breadcrumb-container {
         display: none !important;
     }
     
@@ -232,6 +466,7 @@ body {
         padding: 0 !important;
         max-height: none !important;
         overflow: visible !important;
+        box-shadow: none !important;
     }
 }
 
