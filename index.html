@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Contrato de Locação</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header">
+                <h1><i class="fas fa-file-contract"></i> Gerador de Contrato de Locação</h1>
+                <p>Sistema completo para criação e gestão de contratos de locação</p>
+                <small>Desenvolvido por Harrison Costa</small>
+            </div>
+            
+            <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="form-tab" data-bs-toggle="tab" data-bs-target="#form-pane" type="button" role="tab">
+                        <i class="fas fa-edit"></i> Editar Dados
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="preview-tab" data-bs-toggle="tab" data-bs-target="#preview-pane" type="button" role="tab">
+                        <i class="fas fa-eye"></i> Visualizar Contrato
+                    </button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="mainTabContent">
+                <!-- Aba de Formulário -->
+                <div class="tab-pane fade show active" id="form-pane" role="tabpanel">
+                    <form id="contratoForm">
+                        <!-- Dados da Locadora -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-user-tie"></i> Dados da Locadora</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nome Completo</label>
+                                    <input type="text" class="form-control" name="locadora.nome" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Nacionalidade</label>
+                                    <input type="text" class="form-control" name="locadora.nacionalidade" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Estado Civil</label>
+                                    <select class="form-select" name="locadora.estado_civil" required>
+                                        <option value="">Selecione</option>
+                                        <option value="solteiro">Solteiro(a)</option>
+                                        <option value="casado">Casado(a)</option>
+                                        <option value="divorciado">Divorciado(a)</option>
+                                        <option value="viúvo">Viúvo(a)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">RG</label>
+                                    <input type="text" class="form-control" name="locadora.rg" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Órgão Expedidor</label>
+                                    <input type="text" class="form-control" name="locadora.orgao_rg" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CPF</label>
+                                    <input type="text" class="form-control" name="locadora.cpf" required>
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label class="form-label">Endereço</label>
+                                    <input type="text" class="form-control" name="locadora.endereco" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CEP</label>
+                                    <input type="text" class="form-control" name="locadora.cep" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" name="locadora.cidade" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Estado</label>
+                                    <input type="text" class="form-control" name="locadora.estado" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dados do Locatário -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-user"></i> Dados do Locatário</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nome Completo</label>
+                                    <input type="text" class="form-control" name="locatario.nome" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Nacionalidade</label>
+                                    <input type="text" class="form-control" name="locatario.nacionalidade" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Estado Civil</label>
+                                    <select class="form-select" name="locatario.estado_civil" required>
+                                        <option value="">Selecione</option>
+                                        <option value="solteiro">Solteiro(a)</option>
+                                        <option value="casado">Casado(a)</option>
+                                        <option value="divorciado">Divorciado(a)</option>
+                                        <option value="viúvo">Viúvo(a)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Profissão</label>
+                                    <input type="text" class="form-control" name="locatario.profissao" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Telefone</label>
+                                    <input type="text" class="form-control" name="locatario.telefone" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Data de Nascimento</label>
+                                    <input type="text" class="form-control" name="locatario.data_nascimento" placeholder="DD-MM-AAAA" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">RG</label>
+                                    <input type="text" class="form-control" name="locatario.rg" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Órgão Expedidor</label>
+                                    <input type="text" class="form-control" name="locatario.orgao_rg" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CPF</label>
+                                    <input type="text" class="form-control" name="locatario.cpf" required>
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label class="form-label">Endereço</label>
+                                    <input type="text" class="form-control" name="locatario.endereco" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CEP</label>
+                                    <input type="text" class="form-control" name="locatario.cep" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" name="locatario.cidade" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Estado</label>
+                                    <input type="text" class="form-control" name="locatario.estado" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dados do Imóvel -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-home"></i> Dados do Imóvel</h4>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Tipo do Imóvel</label>
+                                    <select class="form-select" name="imovel.tipo" required>
+                                        <option value="">Selecione</option>
+                                        <option value="Apartamento">Apartamento</option>
+                                        <option value="Casa">Casa</option>
+                                        <option value="Kitnet">Kitnet</option>
+                                        <option value="Studio">Studio</option>
+                                        <option value="Loft">Loft</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <label class="form-label">Endereço do Imóvel</label>
+                                    <input type="text" class="form-control" name="imovel.endereco" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CEP</label>
+                                    <input type="text" class="form-control" name="imovel.cep" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Cidade</label>
+                                    <input type="text" class="form-control" name="imovel.cidade" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Estado</label>
+                                    <input type="text" class="form-control" name="imovel.estado" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Quartos</label>
+                                    <input type="text" class="form-control" name="imovel.quartos" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Salas</label>
+                                    <input type="text" class="form-control" name="imovel.sala" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Cozinhas</label>
+                                    <input type="text" class="form-control" name="imovel.cozinha" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label">Banheiros</label>
+                                    <input type="text" class="form-control" name="imovel.banheiros" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label class="form-label">Observações Adicionais</label>
+                                    <textarea class="form-control" name="imovel.observacoes" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dados do Contrato -->
+                        <div class="form-section">
+                            <h4><i class="fas fa-file-contract"></i> Dados do Contrato</h4>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Tipo de Locação</label>
+                                    <select class="form-select" name="contrato.tipo_locacao" required>
+                                        <option value="">Selecione</option>
+                                        <option value="residencial">Residencial</option>
+                                        <option value="comercial">Comercial</option>
+                                        <option value="misto">Misto</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Finalidade</label>
+                                    <input type="text" class="form-control" name="contrato.finalidade" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Prazo (meses)</label>
+                                    <input type="number" class="form-control" name="contrato.prazo_meses" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Data de Início</label>
+                                    <input type="text" class="form-control" name="contrato.data_inicio" placeholder="DD/MM/AAAA" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Data de Fim</label>
+                                    <input type="text" class="form-control" name="contrato.data_fim" placeholder="DD/MM/AAAA" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Dia do Vencimento</label>
+                                    <input type="number" class="form-control" name="contrato.dia_vencimento" min="1" max="31" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Valor do Aluguel (R$)</label>
+                                    <input type="text" class="form-control" name="contrato.valor_aluguel" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Valor da Fiança (R$)</label>
+                                    <input type="text" class="form-control" name="contrato.valor_fianca" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Chave PIX</label>
+                                    <input type="text" class="form-control" name="contrato.chave_pix" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Banco PIX</label>
+                                    <input type="text" class="form-control" name="contrato.banco_pix" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Local de Assinatura</label>
+                                    <input type="text" class="form-control" name="contrato.local_assinatura" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Data de Assinatura</label>
+                                    <input type="text" class="form-control" name="contrato.data_assinatura" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Fórum Competente</label>
+                                    <input type="text" class="form-control" name="contrato.forum" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Índice de Reajuste</label>
+                                    <input type="text" class="form-control" name="contrato.indice_reajuste" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-save"></i> Salvar Dados
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Aba de Visualização -->
+                <div class="tab-pane fade" id="preview-pane" role="tabpanel">
+                    <div class="contrato-preview" id="contratoPreview">
+                        <div class="text-center">
+                            <i class="fas fa-file-contract fa-3x text-muted mb-3"></i>
+                            <p class="text-muted">Preencha os dados na aba "Editar Dados" para visualizar o contrato</p>
+                        </div>
+                    </div>
+                    
+                    <div class="export-buttons">
+                        <button type="button" class="btn btn-success" onclick="exportarPDF()">
+                            <i class="fas fa-file-pdf"></i> Baixar PDF
+                        </button>
+                        <button type="button" class="btn btn-info" onclick="exportarWord()">
+                            <i class="fas fa-file-word"></i> Baixar Word
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="imprimir()">
+                            <i class="fas fa-print"></i> Imprimir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>&copy; 2024 Sistema de Contratos de Locação - Desenvolvido por Harrison Costa</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                    <p class="mt-3">Processando...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
